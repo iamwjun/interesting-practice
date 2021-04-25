@@ -8,25 +8,32 @@
 </head>
 
 <body>
-  <div class="count"></div>
-  <div class="slot"></div>
+  <div>
+    <span>count:</span>
+    <span class="count"></span>
+  </div>
+  <button onclick=""></button>
 </body>
 <script>
-  function render(text) {
-    var count = document.querySelector('.count');
-    count.innerHTML = count;
-  }
-  
   function useState(value) {
     let state = value || null;
     function dispatch(next) {
       this.state = next;
       render(this.state);
     }
-    return [state, dispatch]
+    return [state, dispatch];
   }
 
   const [count, setCount] = useState(1);
+  
+  function render(text) {
+    var cdom = document.querySelector('.count');
+    cdom.innerHTML = text;
+  }
+
+  // 1、render能直接读取state吗
+  // 2、state一直未变化
+  // 3、useState内何时return
 </script>
 
 </html>
