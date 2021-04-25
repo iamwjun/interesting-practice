@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React-Hooks-v1</title>
+</head>
+
+<body>
+  <div class="count"></div>
+  <div class="slot"></div>
+</body>
+<script>
+  function render(text) {
+    var count = document.querySelector('.count');
+    count.innerHTML = count;
+  }
+  
+  function useState(value) {
+    let state = value || null;
+    function dispatch(next) {
+      this.state = next;
+      render(this.state);
+    }
+    return [state, dispatch]
+  }
+
+  const [count, setCount] = useState(1);
+</script>
+
+</html>
