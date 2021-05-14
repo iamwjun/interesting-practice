@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React-Hooks</title>
+</head>
+
+<body>
+  <div class="count"></div>
+  <div class="slot"></div>
+</body>
+<script>
+  const ReactCurrentDispatcher = {
+    current: (null),
+  }
+
+  function resolveDispatcher() {
+    const dispatcher = ReactCurrentDispatcher.current;
+    return dispatcher;
+  }
+
+  function useState(initialState) {
+    const dispatcher = resolveDispatcher();
+    console.log(dispatcher);
+    return dispatcher.useState(initialState);
+  }
+
+  const [count, setCount] = useState(1);
+  const [slot, setSlot] = useState();
+
+  function render() {
+    var dq01 = document.querySelector('.count');
+    var dq02 = document.querySelector('.slot');
+    console.log(dq01);
+    console.log(dq02);
+    dq01.innerHTML = count;
+    dq02.innerHTML = slot;
+  }
+</script>
+
+</html>
