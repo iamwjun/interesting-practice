@@ -1,0 +1,17 @@
+{
+  "cookies": [
+    {
+      "name": "accessToken",
+      "value": "value",
+      "domain": "http://localhost:8000",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    { "origin": "http://localhost:8000", "localStorage": [{ "name": "token", "value": "jwt" }] }
+  ]
+}
