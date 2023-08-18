@@ -1,0 +1,308 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>music equalizer</title>
+  <link rel="icon" content="">
+  <style rel="stylesheet">
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    .box {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      max-height: 100vh;
+      font-size: 26px;
+    }
+
+    .audio {
+      display: inline-block;
+    }
+
+    .player {
+      height: 36px;
+      background-color: rgba(0, 0, 0, 0.06);
+      border-radius: 18px;
+      padding: 0 16px 0 11px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pause {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .pause .icon {
+      width: 0;
+      height: 0;
+      border-radius: 2px;
+      border-style: solid;
+      border-color: transparent;
+      border-top-width: 6px;
+      border-left-width: 8px;
+      border-left-color: #000;
+      border-bottom-width: 6px;
+      border-right-width: 8px;
+      transition: all .25s step-end;
+      transform: translateX(5px);
+    }
+
+    .pause .paly {
+      width: 4px;
+      height: 10px;
+      border-radius: 0;
+      border-style: solid;
+      border-color: #000;
+      border-width: 0;
+      border-left-width: 2px;
+      border-right-width: 2px;
+      margin-right: 8px;
+    }
+
+    .progress {
+      height: 36px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 13px;
+      color: #000000;
+      letter-spacing: 0;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .curr,
+    .duration {
+      display: inline-block;
+    }
+
+    .curr {
+      min-width: 38px;
+      text-align: right;
+    }
+
+    .duration {
+      text-align: left;
+      min-width: 41px;
+    }
+
+    .equalizer {
+      height: 15px;
+      width: 20px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .equalizer .bar {
+      height: 15px;
+      width: 2px;
+      border-radius: 1px;
+      background-color: #000000;
+    }
+
+    .equalizer .bar:nth-child(n+2) {
+      margin-left: 2px;
+    }
+
+    .equalizer .bar:first-child,
+    .equalizer .bar:last-child {
+      height: 5px;
+    }
+
+    .equalizer .bar:nth-child(even) {
+      height: 10px;
+    }
+
+    .linear .bar:first-child {
+      animation: bar1 1s infinite linear;
+    }
+
+    .linear .bar:nth-child(2) {
+      animation: evenbar 0.7s infinite linear;
+    }
+
+    .linear .bar:nth-child(3) {
+      animation: bar3 .9s infinite linear;
+    }
+
+    .linear .bar:nth-child(4) {
+      animation: evenbar 0.6s infinite linear;
+    }
+
+    .linear .bar:last-child {
+      animation: bar1 0.8s infinite linear;
+    }
+
+    @keyframes bar1 {
+      0% {
+        height: 5px;
+      }
+
+      5% {
+        height: 7px;
+      }
+
+      15% {
+        height: 7px;
+      }
+
+      20% {
+        height: 9px;
+      }
+
+      25% {
+        height: 7px;
+      }
+
+      35% {
+        height: 11px;
+      }
+
+      40% {
+        height: 9px;
+      }
+
+      45% {
+        height: 7px;
+      }
+
+      55% {
+        height: 11px;
+      }
+
+      60% {
+        height: 13px;
+      }
+
+      65% {
+        height: 9px;
+      }
+
+      75% {
+        height: 13px;
+      }
+
+      80% {
+        height: 15px;
+      }
+
+      85% {
+        height: 13px;
+      }
+
+      95% {
+        height: 15px;
+      }
+
+      100% {
+        height: 5px;
+      }
+    }
+
+    @keyframes evenbar {
+      0% {
+        height: 10px;
+      }
+
+      20% {
+        height: 5px;
+      }
+
+      40% {
+        height: 10px;
+      }
+
+      60% {
+        height: 15px;
+      }
+
+      60% {
+        height: 10px;
+      }
+
+      100% {
+        height: 15px;
+      }
+    }
+
+    @keyframes bar3 {
+      0% {
+        height: 15px;
+      }
+
+      20% {
+        height: 15px;
+      }
+
+      40% {
+        height: 5px;
+      }
+
+      60% {
+        height: 0;
+      }
+
+      60% {
+        height: 5px;
+      }
+
+      100% {
+        height: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="audio">
+      <div class="player">
+        <div class="pause" onTap="playAudio">
+          <div class="icon"></div>
+        </div>
+        <div class="progress">
+          <div class="curr">0:00</div>
+          /
+          <div class="duration">0:19</div>
+        </div>
+        <div class="equalizer">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  const player = document.querySelector('.player');
+  const icon = document.querySelector('.icon');
+  const equalizer = document.querySelector('.equalizer');
+  player.addEventListener('click', function () {
+    icon.classList.toggle('paly');
+    equalizer.classList.toggle('linear');
+  })
+</script>
+
+</html>
