@@ -113,7 +113,7 @@
     }
 
     .equalizer .bar {
-      height: 15px;
+      height: 100%;
       width: 2px;
       border-radius: 1px;
       background-color: #000000;
@@ -125,14 +125,14 @@
 
     .equalizer .bar:first-child,
     .equalizer .bar:last-child {
-      height: 5px;
+      height: 33.333333%;
     }
 
     .equalizer .bar:nth-child(even) {
-      height: 10px;
+      height: 66.666666%;
     }
 
-    .linear .bar:first-child {
+    /* .linear .bar:first-child {
       animation: bar1 1s infinite linear;
     }
 
@@ -150,6 +150,32 @@
 
     .linear .bar:last-child {
       animation: bar1 0.8s infinite linear;
+    } */
+
+    .linear .bar {
+      animation: equalizer 1.9s steps(20, end) infinite;
+    }
+
+    .linear .bar:first-child {
+      animation-duration: 1.9s;
+    }
+
+    .linear .bar:nth-child(2) {
+      animation-name: equalizermiddle;
+      animation-duration: 2.0s;
+    }
+
+    .linear .bar:nth-child(3) {
+      animation-duration: 1.7s;
+    }
+
+    .linear .bar:nth-child(4) {
+      animation-name: equalizermiddle;
+      animation-duration: 2.1s;
+    }
+
+    .linear .bar:last-child {
+      animation-duration: 1.8s;
     }
 
     @keyframes bar1 {
@@ -267,6 +293,218 @@
 
       100% {
         height: 10px;
+      }
+    }
+
+    @keyframes equalizer {
+      0% {
+        height: 30%;
+      }
+
+      4% {
+        height: 50%;
+      }
+
+      8% {
+        height: 40%;
+      }
+
+      12% {
+        height: 30%;
+      }
+
+      16% {
+        height: 20%;
+      }
+
+      20% {
+        height: 30%;
+      }
+
+      24% {
+        height: 40%;
+      }
+
+      28% {
+        height: 10%;
+      }
+
+      32% {
+        height: 40%;
+      }
+
+      36% {
+        height: 60%;
+      }
+
+      40% {
+        height: 20%;
+      }
+
+      44% {
+        height: 40%;
+      }
+
+      48% {
+        height: 70%;
+      }
+
+      52% {
+        height: 30%;
+      }
+
+      56% {
+        height: 10%;
+      }
+
+      60% {
+        height: 30%;
+      }
+
+      64% {
+        height: 50%;
+      }
+
+      68% {
+        height: 60%;
+      }
+
+      72% {
+        height: 70%;
+      }
+
+      76% {
+        height: 80%;
+      }
+
+      80% {
+        height: 70%;
+      }
+
+      84% {
+        height: 60%;
+      }
+
+      88% {
+        height: 50%;
+      }
+
+      92% {
+        height: 60%;
+      }
+
+      96% {
+        height: 70%;
+      }
+
+      100% {
+        height: 80%;
+      }
+    }
+
+    @keyframes equalizermiddle {
+      0% {
+        height: 60%;
+      }
+
+      4% {
+        height: 50%;
+      }
+
+      8% {
+        height: 40%;
+      }
+
+      12% {
+        height: 30%;
+      }
+
+      16% {
+        height: 20%;
+      }
+
+      20% {
+        height: 30%;
+      }
+
+      24% {
+        height: 40%;
+      }
+
+      28% {
+        height: 10%;
+      }
+
+      32% {
+        height: 40%;
+      }
+
+      36% {
+        height: 60%;
+      }
+
+      40% {
+        height: 20%;
+      }
+
+      44% {
+        height: 40%;
+      }
+
+      48% {
+        height: 70%;
+      }
+
+      52% {
+        height: 30%;
+      }
+
+      56% {
+        height: 10%;
+      }
+
+      60% {
+        height: 30%;
+      }
+
+      64% {
+        height: 50%;
+      }
+
+      68% {
+        height: 60%;
+      }
+
+      72% {
+        height: 70%;
+      }
+
+      76% {
+        height: 80%;
+      }
+
+      80% {
+        height: 70%;
+      }
+
+      84% {
+        height: 60%;
+      }
+
+      88% {
+        height: 50%;
+      }
+
+      92% {
+        height: 60%;
+      }
+
+      96% {
+        height: 70%;
+      }
+
+      100% {
+        height: 80%;
       }
     }
   </style>
