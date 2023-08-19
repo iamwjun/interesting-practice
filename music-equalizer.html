@@ -153,7 +153,7 @@
     } */
 
     .linear .bar {
-      animation: equalizer 1.9s steps(20, end) infinite;
+      animation: odd 1.9s steps(20, end) infinite;
     }
 
     .linear .bar:first-child {
@@ -161,7 +161,7 @@
     }
 
     .linear .bar:nth-child(2) {
-      animation-name: equalizermiddle;
+      animation-name: even;
       animation-duration: 2.0s;
     }
 
@@ -170,7 +170,7 @@
     }
 
     .linear .bar:nth-child(4) {
-      animation-name: equalizermiddle;
+      animation-name: even;
       animation-duration: 2.1s;
     }
 
@@ -296,7 +296,7 @@
       }
     }
 
-    @keyframes equalizer {
+    @keyframes odd {
       0% {
         height: 30%;
       }
@@ -402,29 +402,29 @@
       }
     }
 
-    @keyframes equalizermiddle {
+    @keyframes even {
       0% {
-        height: 60%;
+        height: 70%;
       }
 
       4% {
-        height: 50%;
+        height: 60%;
       }
 
       8% {
-        height: 40%;
+        height: 50%;
       }
 
       12% {
-        height: 30%;
+        height: 40%;
       }
 
       16% {
-        height: 20%;
+        height: 30%;
       }
 
       20% {
-        height: 30%;
+        height: 20%;
       }
 
       24% {
