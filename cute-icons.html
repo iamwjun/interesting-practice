@@ -1,0 +1,119 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cute icons</title>
+  <link rel="icon" content="">
+  <style rel="stylesheet">
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 168px);
+      grid-template-rows: 168px;
+      grid-gap: 3px;
+      min-height: 100vh;
+      max-height: 100vh;
+      font-size: 26px;
+    }
+
+    .item {
+      border: 1px solid #d8d8d8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* .item::before,
+    .item::after {
+      position: absolute;
+      content: '';
+      height: 168px;
+      width: 1px;
+      background-color: azure;
+    } */
+
+    .item::after {
+      transform: rotate(90deg);
+    }
+
+    .clock {
+      position: relative;
+      border-radius: 50%;
+      border: 1px solid #1677FF;
+      width: 28px;
+      height: 28px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .clock:after {
+      position: absolute;
+      width: 1px;
+      height: 10px;
+      display: block;
+      background-color: #1677FF;
+      border-radius: 0.5px;
+      content: '';
+      left: 13.5px;
+      top: 4px;
+      animation-duration: 2s;
+    }
+
+    .clock:before {
+      position: absolute;
+      width: 1px;
+      border-radius: 0.5px;
+      height: 8px;
+      display: block;
+      background-color: #1677FF;
+      content: '';
+      left: 13.5px;
+      top: 6px;
+      animation-duration: 6s;
+    }
+
+    .clock:before,
+    .clock:after {
+      transform-origin: bottom;
+      animation-name: dial;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes dial {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">
+      <span class="clock"></span>
+    </div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+  </div>
+</body>
+
+</html>
